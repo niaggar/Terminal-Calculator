@@ -1,5 +1,6 @@
 
 from msgs import messages
+from Operations import do_power, do_mult, do_div, do_sum, do_rest
 
 
 def rq_input():
@@ -13,11 +14,6 @@ def rq_num(operation):
     return num1, num2
 
 
-def do_power(values):
-    result = float(values[0]) ** float(values[1])
-    print(f'The result of {values[0]} ** {values[1]} is {result}')
-
-
 def detect_command(command):
     if command == 'exit':
         return False
@@ -26,6 +22,18 @@ def detect_command(command):
         return True
     elif command == 'power':
         do_power(rq_num('power'))
+        return True
+    elif command == 'sum':
+        do_sum(rq_num('sum'))
+        return True
+    elif command == 'res':
+        do_rest(rq_num('res'))
+        return True
+    elif command == 'div':
+        do_div(rq_num('div'))
+        return True
+    elif command == 'mult':
+        do_mult(rq_num('mult'))
         return True
     else:
         print(messages()['error'])
